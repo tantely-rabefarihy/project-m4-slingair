@@ -3,17 +3,27 @@ import styled from "styled-components";
 
 import { themeVars } from "../GlobalStyles";
 
-const FlightSelect = ({ handleFlightSelect }) => {
-  const [flights, setFlights] = useState([]);
+const FlightSelect = ({ flightNumber, handleFlightSelect }) => {
+  const [flights, setFlights] = useState(["Choose a flight"]);
 
   useEffect(() => {
     // TODO: fetch the flight numbers
+    fetch("/flights")
+    .then((res) => res.json())
+    .then((data) => { 
+      setFlights([flights, data.data.allFlights])})
+
   }, []);
 
   return (
     <Wrapper>
       <label htmlFor="flight">Flight Number :</label>
       {/* TODO: Create a dropdown from the flight numbers */}
+      <select value={flightNumber} onChange={handleFlightSelect}>
+      {flights.map(flight => { 
+        return <option value={flight} key={flight}>{flight}</option>
+      })}
+      </select>
     </Wrapper>
   );
 };

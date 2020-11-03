@@ -5,7 +5,7 @@
 - Implemented in React.Js
 - Render the seats based on the data, as provided by the BE.
   - If a seat is marked as `isAvailable: false`, it shouldn't be selectable.
-  - I have the the barebones of this setup already. Just need to connect it to the backend and hope it doesn't break!
+  - I have the barebones of this setup already. Just need to connect it to the backend and hope it doesn't break!
 
 ### Web Pages
 

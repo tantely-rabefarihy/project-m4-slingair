@@ -6,30 +6,60 @@ import Footer from "./Footer";
 import SeatSelect from "./SeatSelect";
 import Confirmation from "./Confirmation";
 import GlobalStyles, { themeVars } from "./GlobalStyles";
+import ViewReservation from "./ViewReservation";
 
 const App = () => {
+
   const [userReservation, setUserReservation] = useState({});
 
   const updateUserReservation = (newData) => {
-    setUserReservation({ ...userReservation, ...newData });
+    // before:  setUserReservation({ ...userReservation,...newData  });
+    setUserReservation({...newData });
   };
 
   useEffect(() => {
     // TODO: check localStorage for an id
     // if yes, get data from server and add it to state
+console.log("**** LOCAL STORAGE :", localStorage.getItem("id")); 
+
+    let reservationID = localStorage.getItem("id");
+
+    if (reservationID || reservationID !== "") {
+      const getUserReserve = async () => {
+        let result1 = await fetch(`/reservations/${reservationID}`
+        // , {
+        //   method: "GET",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   }}
+          );
+        let result2 = await result1.json();
+        console.log("VALUE OF result2.data : ", result2.data);
+        updateUserReservation(result2.data);
+        // OTHER OPTION
+        // updateUserReservation({...data.data.singleBooking}) ; 
+      };
+      getUserReserve();
+      }
   }, [setUserReservation]);
+
+
+  console.log("**** USER RESERVATION VALUE :", userReservation); 
 
   return (
     <BrowserRouter>
       <GlobalStyles />
-      <Header />
+      <Header userReservation={userReservation} />
       <Main>
         <Switch>
-          <Route exact path="/">
-            <SeatSelect />
+          <Route exact path="/" >
+            <SeatSelect updateUserReservation={updateUserReservation}/>
           </Route>
           <Route exact path="/confirmed">
-            <Confirmation />
+            <Confirmation userReservation={userReservation} />
+          </Route>
+          <Route exact path="/view-reservation">
+            <ViewReservation userReservation={userReservation} />
           </Route>
           <Route path="">404: Oops!</Route>
         </Switch>

@@ -60,7 +60,7 @@ const flights = {
     { id: "10D", isAvailable: true },
     { id: "10E", isAvailable: true },
     { id: "10F", isAvailable: true },
-  ],
+  ]
 };
 
 const reservations = [
@@ -72,6 +72,14 @@ const reservations = [
     surname: "McFly",
     email: "marty@backfuture.com",
   },
+  {
+    id: "1234",
+    flight: "SA231",
+    seat: "6D",
+    givenName: "doc",
+    surname: "McFly",
+    email: "marty@backfuture.com",
+  }
 ];
 
 module.exports = { flights, reservations };
