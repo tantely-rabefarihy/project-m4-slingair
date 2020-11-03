@@ -18,7 +18,7 @@ res.status(200).json({status: 200 , data: {allFlights}})
   
 };
 
-// console.log("DISPLAY FLIGHTS", getFlights()) ;
+
 
 const getFlight = (req, res) => {
   const flightId = req.params.id ;

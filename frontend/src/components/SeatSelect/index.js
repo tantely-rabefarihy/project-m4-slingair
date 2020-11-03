@@ -56,31 +56,6 @@ const SeatSelect = ({ updateUserReservation }) => {
       // TODO: if 201, redirect to /confirmed (push)
       // TODO: if error from server, show error to user (stretch goal)
 
-      // ******************
-//       fetch("/reservations" , {
-//         method: "POST" , 
-//         body: JSON.stringify({...formData, flightNumber}),
-//         headers: {
-//           Accept: "application/json",
-//           "Content-Type": "application/json"
-//         }
-//       })
-//       .then((res) => res.json())
-//       .then((json) => {
-//         const { status, data } = json ;
-//         if (status === "201") {
-//           setSubStatus = "confirmed";
-// // console.log("*********", data.newReservation.id);
-//           localStorage.setItem("id", `${data.newReservation.id}`);
-//           updateUserReservation({...data.newReservation});
-//           // history.push("/confirmed");
-//       } else {
-//         setSubStatus("error");
-//       }
-//       })
-  
-      // ******************
-
         fetch("/reservation" , {
                 method: "POST" , 
                 body: JSON.stringify({...formData, flight: flightNumber}),
@@ -107,7 +82,6 @@ const SeatSelect = ({ updateUserReservation }) => {
                 setSubStatus("error");
               }
             })
-      
 // **************
 
   }

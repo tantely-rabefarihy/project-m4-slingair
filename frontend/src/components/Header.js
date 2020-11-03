@@ -13,25 +13,20 @@ console.log("reservationDone", reservationInDb);
 return (
 
   <Wrapper>
-  <Logo>
-    <h1>Sling Airlines</h1>
-  </Logo>
-  <Nav>
-    {/* TODO: only show links if the user has a reservation already */}
-    {
-    // !(Object.keys(reservationDone).length === 0 && reservationDone.constructor === Object) 
-     (reservationInDb) &&
-<>
-<StyledNavLink to="/view-reservation">Reservation</StyledNavLink>
-<StyledNavLink to="/profile">Profile</StyledNavLink>
-</>
-    
-    
-    
-    }
-    
-  </Nav>
-</Wrapper>
+    <Logo>
+      <h1>Sling Airlines</h1>
+    </Logo>
+    <Nav>
+      {/* TODO: only show links if the user has a reservation already */}
+      {(reservationInDb) &&
+      <>
+      <StyledNavLink to="/view-reservation">Reservation</StyledNavLink>
+      <StyledNavLink to="/profile">Profile</StyledNavLink>
+      </>
+      }
+      
+    </Nav>
+  </Wrapper>
 
 );
 }

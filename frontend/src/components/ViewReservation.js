@@ -6,7 +6,6 @@ import themeVars from "./GlobalStyles"
 
 const ViewReservation = ({userReservation}) => {
     const userData = userReservation ;
-    console.log("VIEW RESERVATION", userData)
 
 return <>
         <Wrapper>

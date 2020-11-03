@@ -71,14 +71,6 @@ const reservations = [
     givenName: "Marty",
     surname: "McFly",
     email: "marty@backfuture.com",
-  },
-  {
-    id: "1234",
-    flight: "SA231",
-    seat: "6D",
-    givenName: "doc",
-    surname: "McFly",
-    email: "marty@backfuture.com",
   }
 ];
 

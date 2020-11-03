@@ -6,8 +6,6 @@ import tombstone from "../assets/tombstone.png";
 
 const Confirmation = ({userReservation}) => {
 
-// const { seat, givenName, surname, email, flight, id} = userReservation; 
-console.log("USER RESERVATION FLIGHT: ", userReservation);
 
   return (
     <>

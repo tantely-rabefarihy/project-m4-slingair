@@ -20,31 +20,21 @@ const App = () => {
   useEffect(() => {
     // TODO: check localStorage for an id
     // if yes, get data from server and add it to state
-console.log("**** LOCAL STORAGE :", localStorage.getItem("id")); 
 
     let reservationID = localStorage.getItem("id");
 
     if (reservationID || reservationID !== "") {
       const getUserReserve = async () => {
-        let result1 = await fetch(`/reservations/${reservationID}`
-        // , {
-        //   method: "GET",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   }}
-          );
+        let result1 = await fetch(`/reservations/${reservationID}`);
         let result2 = await result1.json();
         console.log("VALUE OF result2.data : ", result2.data);
         updateUserReservation(result2.data);
-        // OTHER OPTION
-        // updateUserReservation({...data.data.singleBooking}) ; 
       };
       getUserReserve();
       }
   }, [setUserReservation]);
 
 
-  console.log("**** USER RESERVATION VALUE :", userReservation); 
 
   return (
     <BrowserRouter>
